@@ -24,6 +24,10 @@
   </head>
 
   <body>
+    <div id="header">
+      <%= render "layouts/shared/header" %>
+      <%= yield :header %>
+    </div>
     <%= yield %>
   </body>
 </html>
