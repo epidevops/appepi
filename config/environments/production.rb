@@ -95,12 +95,12 @@ Rails.application.configure do
   # Replace the default in-process memory cache store with a durable alternative.
   config.cache_store = :solid_cache_store
 
-  config.mission_control.jobs.http_basic_auth_enabled = false
+  config.mission_control.jobs.base_controller_class = "ApplicationController"
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue, reading: :queue } }
-  config.mission_control.jobs.adapters = :solid_queue
+  config.mission_control.jobs.adapters = [ :solid_queue ]
 
   config.action_mailer.perform_caching = false
 
