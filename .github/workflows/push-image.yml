@@ -1,9 +1,11 @@
 name: Build and publish container image to GHCR
 
 on:
+  workflow_run:
+    workflows: ["CI"]
+    branches: [main]
+    types: [completed]
   push:
-    branches:
-      - main
     tags:
       - 'v*'
   workflow_dispatch:
@@ -19,6 +21,7 @@ env:
 jobs:
   build:
     name: Build and push image (${{ matrix.arch }})
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 45
     permissions:

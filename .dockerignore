@@ -45,6 +45,9 @@
 
 # Ignore development files
 /.devcontainer
+/.claude
+/AGENTS.md
+/STYLE.md
 
 # Ignore Docker-related files
 /.dockerignore
