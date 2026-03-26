@@ -41,3 +41,7 @@
 
 /config/credentials/*.key
 .DS_Store
+
+# Ignore .claude directory except tracked config files
+.claude/*
+!.claude/CLAUDE.md
