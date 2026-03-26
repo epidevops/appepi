@@ -95,7 +95,7 @@ Rails.application.configure do
   # Replace the default in-process memory cache store with a durable alternative.
   config.cache_store = :solid_cache_store
 
-  config.mission_control.jobs.base_controller_class = "ApplicationController"
+  config.mission_control.jobs.base_controller_class = "MountsController"
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :solid_queue
